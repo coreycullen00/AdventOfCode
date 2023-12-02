@@ -49,6 +49,24 @@ fun main() {
         return games
     }
 
+    fun calculateMaxBag(subsets: List<Bag>): Bag {
+        var maxRed = 0
+        var maxBlue = 0
+        var maxGreen = 0
+
+        subsets.forEach { bag ->
+            if (bag.red > maxRed) maxRed = bag.red
+            if (bag.blue > maxBlue) maxBlue = bag.blue
+            if (bag.green > maxGreen) maxGreen = bag.green
+        }
+        return Bag(blue = maxBlue, red = maxRed, green = maxGreen)
+    }
+
+    fun powerSet(subsets: List<Bag>): Int {
+        val maxBag = calculateMaxBag(subsets)
+        return maxBag.blue * maxBag.red * maxBag.green
+    }
+
     fun part1(input: List<String>): Int {
         val games = input.getGames()
 
@@ -56,19 +74,19 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        return input.size
+        val games = input.getGames()
+        return games.sumOf { powerSet(it.subsets) }
     }
 
     val testInputP1 = readInput(getTestInput("Day02P1"))
-    println("TEST1: ${part1(testInputP1)}")
     check(part1(testInputP1) == 8)
 
-//    val testInputP2 = readInput(getTestInput("Day02P2"))
-//    check(part2(testInputP2) == 281)
+    val testInputP2 = readInput(getTestInput("Day02P2"))
+    check(part2(testInputP2) == 2286)
 
     val input = readInput(getInput("Day02"))
     part1(input).println()
-//    part2(input).println()
+    part2(input).println()
 }
 
 data class Game(
