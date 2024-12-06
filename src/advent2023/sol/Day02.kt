@@ -1,9 +1,9 @@
 package advent2023.sol
 
-import advent2023.Utils.Companion.getInput
-import advent2023.Utils.Companion.getTestInput
-import println
-import readInput
+import advent2023.Utils.getInput
+import advent2023.Utils.getTestInput
+import advent2023.Utils.println
+import advent2023.Utils.readInput
 
 val validBag = Bag(14, 12, 13)
 fun main() {
