@@ -1,9 +1,9 @@
 package advent2024.sol
 
-import advent2024.Utils.Companion.getInput
-import advent2024.Utils.Companion.getTestInput
-import println
-import readInput
+import Utils.getInput
+import Utils.getTestInput
+import Utils.println
+import Utils.readInput
 import kotlin.math.abs
 
 fun main() {

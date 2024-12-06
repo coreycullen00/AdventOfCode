@@ -1,8 +1,8 @@
 package advent2022.sol
 
-import advent2022.Utils.Companion.getInput
-import println
-import readInput
+import advent2022.Utils.getInput
+import advent2022.Utils.println
+import advent2022.Utils.readInput
 
 fun main() {
 
