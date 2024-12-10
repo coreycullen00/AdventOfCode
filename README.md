@@ -1,4 +1,8 @@
-# AdventOfCode2023
+# AdventOfCode-Kotlin
+
+[![Advent of Code](https://img.shields.io/badge/Advent%20of%20Code-2021-brightgreen)][aoc]
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.5.31-blue)][kotlin]
+[![GitHub](https://img.shields.io/badge/GitHub-coreycullen00-lightgrey)][github]
 
 Welcome to the Advent of Code[^aoc] Kotlin project created by [coreycullen00][github] using the [Advent of Code Kotlin Template][template] delivered by JetBrains.
 
