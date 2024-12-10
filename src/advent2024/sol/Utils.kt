@@ -1,5 +1,5 @@
-import common.AbstractUtils
+import common.Utils
 
-object Utils : AbstractUtils() {
+object Utils : Utils() {
     override val INPUT = "advent2024/input"
 }

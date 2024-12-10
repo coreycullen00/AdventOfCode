@@ -33,7 +33,7 @@ fun main() {
         var count = 0
         input.forEach { string ->
             var intString = string
-            wordConnector.forEach{ (t, u) -> intString = intString.replace(t, u)}
+            wordConnector.forEach { (t, u) -> intString = intString.replace(t, u) }
             val s = intString.filter { it.isDigit() }
             val num = "${s.first()}${s.last()}".toInt()
             count += num
