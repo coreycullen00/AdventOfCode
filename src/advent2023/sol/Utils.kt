@@ -1,8 +1,7 @@
 package advent2023
 
-import common.AbstractUtils
+import common.Utils
 
-
-internal object Utils : AbstractUtils() {
+internal object Utils : Utils() {
     override val INPUT = "advent2023/input"
 }

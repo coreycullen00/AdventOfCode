@@ -3,71 +3,70 @@ import Utils.getTestInput
 import Utils.println
 import Utils.readInput
 
-
 fun main() {
 
     fun countX(input: List<MutableList<String>>): Int {
         var count = 0
         input.forEach { list ->
             list.forEach { cell ->
-                if(cell == "X") count++
+                if (cell == "X") count++
             }
         }
         return count
     }
 
-    fun traverse(input: List<MutableList<String>>, y: Int, x: Int, marker: Direction): Int{
-        var (row,cell) = y to x
+    fun traverse(input: List<MutableList<String>>, y: Int, x: Int, marker: Direction): Int {
+        var (row, cell) = y to x
         var direction = marker
-        while(true){
-            if(direction == Direction.UP){
-                if(row-1 < 0) {
+        while (true) {
+            if (direction == Direction.UP) {
+                if (row - 1 < 0) {
                     input[row][cell] = "X"
-                    break;
+                    break
                 }
-                if(input[row-1][cell] == "#"){
+                if (input[row - 1][cell] == "#") {
                     direction = direction.rotateRight()
                 }
-                if(input[row-1][cell] == "." || input[row-1][cell] == "X"){
+                if (input[row - 1][cell] == "." || input[row - 1][cell] == "X") {
                     input[row][cell] = "X"
                     row -= 1
                     input[row][cell] = direction.symbol
                 }
-            } else if(direction == Direction.RIGHT){
-                if(cell+1 >= input[row].size) {
+            } else if (direction == Direction.RIGHT) {
+                if (cell + 1 >= input[row].size) {
                     input[row][cell] = "X"
-                    break;
+                    break
                 }
-                if(input[row][cell+1] == "#"){
+                if (input[row][cell + 1] == "#") {
                     direction = direction.rotateRight()
                 }
-                if(input[row][cell+1] == "." || input[row][cell+1] == "X"){
+                if (input[row][cell + 1] == "." || input[row][cell + 1] == "X") {
                     input[row][cell] = "X"
                     cell += 1
                     input[row][cell] = direction.symbol
                 }
-            } else if(direction == Direction.DOWN){
-                if(row+1 >= input.size) {
+            } else if (direction == Direction.DOWN) {
+                if (row + 1 >= input.size) {
                     input[row][cell] = "X"
-                    break;
+                    break
                 }
-                if(input[row+1][cell] == "#"){
+                if (input[row + 1][cell] == "#") {
                     direction = direction.rotateRight()
                 }
-                if(input[row+1][cell] == "." || input[row+1][cell] == "X"){
+                if (input[row + 1][cell] == "." || input[row + 1][cell] == "X") {
                     input[row][cell] = "X"
                     row += 1
                     input[row][cell] = direction.symbol
                 }
-            } else if(direction == Direction.LEFT){
-                if(cell-1 < 0) {
+            } else if (direction == Direction.LEFT) {
+                if (cell - 1 < 0) {
                     input[row][cell] = "X"
-                    break;
+                    break
                 }
-                if(input[row][cell-1] == "#"){
+                if (input[row][cell - 1] == "#") {
                     direction = direction.rotateRight()
                 }
-                if(input[row][cell-1] == "." || input[row][cell-1] == "X"){
+                if (input[row][cell - 1] == "." || input[row][cell - 1] == "X") {
                     input[row][cell] = "X"
                     cell -= 1
                     input[row][cell] = direction.symbol
@@ -78,24 +77,24 @@ fun main() {
     }
 
     fun part1(input: List<MutableList<String>>): Int {
-        //find ^, v, < or > in input list, get position coordinates
+        // find ^, v, < or > in input list, get position coordinates
         var direction: Direction = Direction.UP
-        var (row,cell) = 0 to 0
+        var (row, cell) = 0 to 0
         input.forEachIndexed { y, list ->
             list.forEachIndexed { x, position ->
-                if(position =="^"){
+                if (position == "^") {
                     direction = Direction.UP
                     row = y
                     cell = x
-                } else if(position == ">"){
+                } else if (position == ">") {
                     direction = Direction.RIGHT
                     row = y
                     cell = x
-                } else if(position == "v"){
+                } else if (position == "v") {
                     direction = Direction.DOWN
                     row = y
                     cell = x
-                } else if(position == "<"){
+                } else if (position == "<") {
                     direction = Direction.LEFT
                     row = y
                     cell = x
@@ -106,11 +105,11 @@ fun main() {
         return traverse(input, row, cell, direction)
     }
 
-    val testInput = readInput( getTestInput("Day06P1"))
-    var testInputList = testInput.map { it.toList().map{it.toString()}.toMutableList() }
+    val testInput = readInput(getTestInput("Day06P1"))
+    var testInputList = testInput.map { it.toList().map { it.toString() }.toMutableList() }
     check(part1(testInputList) == 41)
-    val input = readInput( getInput("Day06"))
-    part1(input.map { it.toList().map{it.toString()}.toMutableList() }).println()
+    val input = readInput(getInput("Day06"))
+    part1(input.map { it.toList().map { it.toString() }.toMutableList() }).println()
 }
 
 enum class Direction(val symbol: String) {

@@ -5,13 +5,12 @@ import Utils.getTestInput
 import Utils.println
 import Utils.readInput
 
-
 fun main() {
 
     val mulRegex = Regex("""mul\((\d{1,3}),(\d{1,3})\)""")
     val mulDoDontRegex = Regex("""mul\((\d{1,3}),(\d{1,3})\)|do\(\)|don't\(\)""")
 
-    fun parseInputP1(input: List<String>) =input.flatMap { string ->
+    fun parseInputP1(input: List<String>) = input.flatMap { string ->
         mulRegex.findAll(string)
             .map { matchResult: MatchResult ->
                 val (x, y) = matchResult.destructured
@@ -25,17 +24,16 @@ fun main() {
 
         for (row in input) {
             mulDoDontRegex.findAll(row).forEach { matchResult ->
-                when(matchResult.value){
+                when (matchResult.value) {
                     "do()" -> enabled = true
                     "don't()" -> enabled = false
                 }
-                if(enabled && matchResult.value.contains("mul")) {
+                if (enabled && matchResult.value.contains("mul")) {
                     val (x, y) = matchResult.destructured
                     result.add(x.toInt() to y.toInt())
                 } else {
                     result.add(0 to 0)
                 }
-
             }
         }
         return result
@@ -44,7 +42,7 @@ fun main() {
     fun part1(input: List<String>): Int {
         var count = 0
         val commands = parseInputP1(input)
-        commands.forEach { count += it.first*it.second}
+        commands.forEach { count += it.first * it.second }
         return count
     }
 
@@ -52,7 +50,7 @@ fun main() {
         var count = 0
         val commands = parseInputP2(input)
         println(commands)
-        commands.forEach { count += it.first*it.second}
+        commands.forEach { count += it.first * it.second }
         return count
     }
 
@@ -61,5 +59,4 @@ fun main() {
     val input = readInput(getInput("Day03"))
     part1(input).println()
     part2(input).println()
-
 }

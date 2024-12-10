@@ -9,7 +9,7 @@ import kotlin.math.abs
 fun main() {
 
     fun part1(input: List<String>): Int {
-        val pairs: List<Pair<String, String>> = input.map{ it.replace("\\s+".toRegex(), ",").split(",") }.map { Pair(it[0], it[1]) }
+        val pairs: List<Pair<String, String>> = input.map { it.replace("\\s+".toRegex(), ",").split(",") }.map { Pair(it[0], it[1]) }
         val lefts = pairs.map { it.first }.sortedDescending().reversed()
         val rights = pairs.map { it.second }.sortedDescending().reversed()
         var count = 0
@@ -19,15 +19,14 @@ fun main() {
         }
 
         return count
-
     }
 
     fun part2(input: List<String>): Int {
-        val pairs: List<Pair<String, String>> = input.map{ it.replace("\\s+".toRegex(), ",").split(",") }.map { Pair(it[0], it[1]) }
+        val pairs: List<Pair<String, String>> = input.map { it.replace("\\s+".toRegex(), ",").split(",") }.map { Pair(it[0], it[1]) }
         val lefts = pairs.map { it.first }
         val rights = pairs.map { it.second }
         var count = 0
-        lefts.forEach { count += (it.toInt() * rights.count {right -> right == it}) }
+        lefts.forEach { count += (it.toInt() * rights.count { right -> right == it }) }
         return count
     }
 

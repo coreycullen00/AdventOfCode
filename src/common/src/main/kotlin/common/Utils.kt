@@ -5,7 +5,7 @@ import java.security.MessageDigest
 import kotlin.io.path.Path
 import kotlin.io.path.readLines
 
-abstract class AbstractUtils {
+abstract class Utils {
     protected abstract val INPUT: String
 
     fun getInput(name: String) = "$INPUT/$name"

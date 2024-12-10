@@ -60,7 +60,6 @@ fun main() {
             }
         }
 
-
     fun String.toGame1(): Game1 {
         val s = this.split(" ")
         return Game1(first = getWeapon(s[0]), second = getWeapon(s[1]))
