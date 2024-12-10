@@ -1,6 +1,6 @@
 # AdventOfCode-Kotlin
 
-[![Advent of Code](https://img.shields.io/badge/Advent%20of%20Code-2021-brightgreen)][aoc]
+[![Advent of Code](https://img.shields.io/badge/advent%20of%20code%20-%20purple)][aoc]
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.5.31-blue)][kotlin]
 [![GitHub](https://img.shields.io/badge/GitHub-coreycullen00-lightgrey)][github]
 
